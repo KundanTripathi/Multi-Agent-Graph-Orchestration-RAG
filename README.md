@@ -8,7 +8,7 @@ The multi-agent system leverages a LangGraph flow for orchestrating document ret
 
 ### Graph
 
-![alt text](image-1.png)
+![alt text](image-2.png)
 
 
 ## 🌐 Flask Web Application
