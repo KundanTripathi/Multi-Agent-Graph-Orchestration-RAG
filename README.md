@@ -3,21 +3,21 @@
 A modular, multi-agent Retrieval-Augmented Generation (RAG) system using graph-based orchestration, powered by Flask, LangGraph, LangChain, ChromaDB, and OpenAI APIs.
 
 #### Note 
--- This is a framework that takes user input for multiple segment which carries files for different departments/function. Below is an example of folder structure:
+-- This is a framework that takes user input for multiple segment which carries files for different departments/function. Below is an example of folder structure: <br>
 
-data/
-├── Segment1/
-│ ├── file1.pdf
-│ └── file2.pdf
-├── Segment2/
-│ ├── file3.pdf
-│ ├── file4.pdf
-│ └── file5.pdf
-└── Segment3/
-├── file6.pdf
-├── file7.pdf
-├── file8.pdf
-└── file9.pdf
+data/ \
+├── Segment1/ \
+│ ├── file1.pdf \
+│ └── file2.pdf \
+├── Segment2/ \
+│ ├── file3.pdf \
+│ ├── file4.pdf \
+│ └── file5.pdf \
+└── Segment3/ \
+├── file6.pdf \
+├── file7.pdf \
+├── file8.pdf \
+└── file9.pdf<br>
 
 ## Application
     Fast Retrieval Augmented Generation for LARGE ENTERPRISE with petabytes of data and multiple Segments of functions/business<br>
