@@ -78,18 +78,18 @@ def router(state: State):
     message_type = state.get("message_type", "search_all")
     if message_type == "DistributedCompute":
         # Route to DistributedCompute Retriver agent
-        return {"next": "DistributedCompute"}
+        return {"next": "RetrieverAgent1"}
     elif message_type == "QueryCategorization":
         # Route to QueryCategorization Retriver agent
-        return {"next": "QueryCategorization"}
+        return {"next": "RetrieverAgent2"}
     elif message_type == "SatelliteImagery":
         # Route to SatelliteImagery Retriver agent
-        return {"next": "SatelliteImagery"}
+        return {"next": "RetrieverAgent3"}
 
-    return {"next": "search_all"}
+    return {"next": "RetrieverAgentAll"}  # Default to search_all if no match
 
 
-def DistributedCompute(state: State):
+def RetrieverAgent1(state: State):
 
     last_message = state["messages"][-1]
     user_input = last_message.content
@@ -121,7 +121,7 @@ def DistributedCompute(state: State):
         "messages": state["messages"] + [{"role": "assistant", "content": reply}]
     }
 
-def SatelliteImagery(state: State):
+def RetrieverAgent2(state: State):
 
     last_message = state["messages"][-1]
     user_input = last_message.content
@@ -150,7 +150,7 @@ def SatelliteImagery(state: State):
     }
 
 
-def QueryCategorization(state: State):
+def RetrieverAgent3(state: State):
 
     last_message = state["messages"][-1]
     user_input = last_message.content
@@ -177,7 +177,7 @@ def QueryCategorization(state: State):
         "messages": state["messages"] + [{"role": "assistant", "content": reply}]
     }
 
-def search_all(state: State):
+def RetrieverAgentAll(state: State):
 
     last_message = state["messages"][-1]
     user_input = last_message.content
@@ -211,10 +211,10 @@ def create_graph():
 
     graph_builder.add_node("classifier", classify_message)
     graph_builder.add_node("router", router)
-    graph_builder.add_node("DistributedCompute", DistributedCompute)
-    graph_builder.add_node("QueryCategorization", QueryCategorization)
-    graph_builder.add_node("SatelliteImagery", SatelliteImagery)
-    graph_builder.add_node("search_all", search_all)
+    graph_builder.add_node("RetrieverAgent1", RetrieverAgent1)
+    graph_builder.add_node("RetrieverAgent2", RetrieverAgent2)
+    graph_builder.add_node("RetrieverAgent3", RetrieverAgent3)
+    graph_builder.add_node("RetrieverAgentAll", RetrieverAgentAll)
 
     graph_builder.add_edge(START, "classifier")
     graph_builder.add_edge("classifier", "router")
@@ -222,13 +222,13 @@ def create_graph():
     graph_builder.add_conditional_edges(
         "router",
         lambda state: state.get("next"),
-        {"DistributedCompute": "DistributedCompute", "QueryCategorization": "QueryCategorization", "SatelliteImagery": "SatelliteImagery", "search_all": "search_all"}
+        {"RetrieverAgent1": "RetrieverAgent1", "RetrieverAgent2": "RetrieverAgent2", "RetrieverAgent3": "RetrieverAgent3", "RetrieverAgentAll": "RetrieverAgentAll"}
     )
 
-    graph_builder.add_edge("DistributedCompute", END)
-    graph_builder.add_edge("QueryCategorization", END)
-    graph_builder.add_edge("SatelliteImagery", END)
-    graph_builder.add_edge("search_all", END)
+    graph_builder.add_edge("RetrieverAgent1", END)
+    graph_builder.add_edge("RetrieverAgent2", END)
+    graph_builder.add_edge("RetrieverAgent3", END)
+    graph_builder.add_edge("RetrieverAgent4", END)
 
     graph = graph_builder.compile()
     return graph

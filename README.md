@@ -2,9 +2,26 @@
 # 🚀 Multi-Agent Graph RAG
 A modular, multi-agent Retrieval-Augmented Generation (RAG) system using graph-based orchestration, powered by Flask, LangGraph, LangChain, ChromaDB, and OpenAI APIs.
 
+#### Note 
+-- This is a framework that takes user input for multiple segment which carries files for different departments/function. Below is an example of folder structure:
+
+data/
+├── Segment1/
+│ ├── file1.pdf
+│ └── file2.pdf
+├── Segment2/
+│ ├── file3.pdf
+│ ├── file4.pdf
+│ └── file5.pdf
+└── Segment3/
+├── file6.pdf
+├── file7.pdf
+├── file8.pdf
+└── file9.pdf
+
 ## Application
-    -- *Fast Retrieval Augmented Generation* - for LARGE ENTERPRISE with petabytes of data and multiple Segments of functions/business<br>
-    -- *Optimized Rtrieval of Content* - using Heirarchial Knowledge Graph and Segmentation<br>
+    Fast Retrieval Augmented Generation for LARGE ENTERPRISE with petabytes of data and multiple Segments of functions/business<br>
+    Optimized Rtrieval of Content using Heirarchial Knowledge Graph and Segmentation<br>
 
 ## 📊 System Architecture
 ### 🧠 Graph Workflow
@@ -12,7 +29,7 @@ The multi-agent system leverages a LangGraph flow for orchestrating document ret
 
 ### Graph
 
-![alt text](image-2.png)
+![alt text](Graph.png)
 
 
 ## 🌐 Flask Web Application
@@ -20,7 +37,7 @@ The front-end Flask app provides an interactive interface to query documents usi
 
 ### Flask App
 
-![alt text](image.png)
+![alt text](App.png)
 
 ## ⚙️ Tech Stack
 🐳 Docker – Containerization for easy deployment
