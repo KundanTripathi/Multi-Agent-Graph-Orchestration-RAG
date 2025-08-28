@@ -4,6 +4,7 @@ A modular, multi-agent Retrieval-Augmented Generation (RAG) system using graph-b
 
 #### Note 
 -- This is a framework that takes user input for multiple segment which carries files for different departments/function. Below is an example of folder structure: <br>
+-- This needs to be coupled with Neo4j for knowledge graph creation for complete graph RAG app which is not included here. <br>
 
 data/ \
 ├── Segment1/ \
@@ -21,7 +22,7 @@ data/ \
 
 ## Application
     Fast Retrieval Augmented Generation for LARGE ENTERPRISE with petabytes of data and multiple Segments of functions/business<br>
-    Optimized Rtrieval of Content using Heirarchial Knowledge Graph and Segmentation<br>
+    Optimized Rtrieval of Content using Heirarchial Graph Index and Segmentation using ANN<br>
 
 ## 📊 System Architecture
 ### 🧠 Graph Workflow
@@ -61,11 +62,11 @@ The front-end Flask app provides an interactive interface to query documents usi
 -- The Langgraph Graph Builders does following steps:<br>
     -- *Classify Query* - It classifies query into the folder structure<br>
     -- *Router* - Routes the query to different agents specifically looking at the context specific to the query<br>
-    -- *Agents* - Retrieves Context with effiecient HNSW Graph Nodes and Edges of Vector DB and passes both Query and Context for response from LLM<br>
+    -- *Agents* - Retrieves Context with effiecient HNSW Graph Nodes and Edges of Vector DB created using ANN for better indexing and context retrieval and passes both Query and Context for response from LLM<br>
 
 ### Clone the repo
 git clone https://github.com/your-username/multi-agent-graph-rag.git
-cd multi-agent-graph-rag
+cd multi-agent-graph-rag 
 
 ### Build and run with Docker
 docker build -t graph-rag-app .
