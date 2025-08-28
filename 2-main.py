@@ -228,7 +228,7 @@ def create_graph():
     graph_builder.add_edge("RetrieverAgent1", END)
     graph_builder.add_edge("RetrieverAgent2", END)
     graph_builder.add_edge("RetrieverAgent3", END)
-    graph_builder.add_edge("RetrieverAgent4", END)
+    graph_builder.add_edge("RetrieverAgentAll", END)
 
     graph = graph_builder.compile()
     return graph

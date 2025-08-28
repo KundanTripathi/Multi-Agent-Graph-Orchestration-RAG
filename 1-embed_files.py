@@ -96,7 +96,7 @@ vector_store = Chroma(
     collection_metadata={
         "hnsw:space": "cosine",  # Distance metric (cosine, l2, or ip)
         "hnsw:M": 32,           # Number of neighbors for HNSW graph (higher = better accuracy, more memory)
-        "hnsw:construction_ef": 100,  # Neighbors explored during index construction
+        "hnsw:construction_ef": 100,  # Neighbours explored during index construction
         "hnsw:search_ef": 50,    # Neighbors explored during search
         "hnsw:num_threads": 4,   # Number of threads for HNSW operations
         "hnsw:resize_factor": 1.2,  # Growth rate for graph capacity
@@ -110,13 +110,11 @@ vector_store.persist()
 query_results = vector_store.similarity_search_by_vector(
     embedding=embeddings.embed_query("What are the model techniques used in satellite imagery?"),
     k=2
-   # filter={"department" : "Ops"} # Filter by category
 )
 
 query_results2 = vector_store.similarity_search_with_score(
     query="What are the model techniques used in satellite imagery?",
-    k=2
-    # filter={"department" : "Ops"} # Filter by category        
+    k=2      
 )
 print("Query Results printing ................")
 print(query_results)
@@ -124,7 +122,4 @@ print("Query Results2 printing .........***.......")
 print(query_results2)
 #print(vector_store.get(limit=2))
 #print(vector_store.get(ids=[uuids[0]]))
-
-
-
 
