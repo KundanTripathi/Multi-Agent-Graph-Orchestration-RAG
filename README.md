@@ -1,5 +1,5 @@
 
-# 🚀 Multi-Agent Graph RAG
+# 🚀 Multi-Agent Graph Orchestration of RAG
 A modular, multi-agent Retrieval-Augmented Generation (RAG) system using graph-based orchestration, powered by Flask, LangGraph, LangChain, ChromaDB, and OpenAI APIs.
 
 #### Note 
