@@ -65,7 +65,7 @@ The front-end Flask app provides an interactive interface to query documents usi
     -- *Agents* - Retrieves Context with effiecient HNSW Graph Nodes and Edges of Vector DB created using ANN for better indexing and context retrieval and passes both Query and Context for response from LLM<br>
 
 ### Clone the repo
-git clone https://github.com/your-username/multi-agent-graph-rag.git
+git clone https://github.com/your-username/multi-agent-graph-orchestration-rag.git
 cd multi-agent-graph-rag 
 
 ### Build and run with Docker
